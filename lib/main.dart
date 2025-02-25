@@ -62,6 +62,25 @@ class MyHomePage extends StatelessWidget {
           String message;
           Color backgroundColor = Colors.white;
 
+
+          if (counter.value <= 12) {
+            message = "You're a child!";
+            backgroundColor = Colors.lightBlue;
+          } else if (counter.value <= 19) {
+            message = "Teenager time!";
+            backgroundColor = Colors.lightGreen;
+          } else if (counter.value <= 30) {
+            message = "You're a young adult!";
+            backgroundColor = Colors.yellow.shade200; // ✅ Correct
+          } else if (counter.value <= 50) {
+            message = "You're an adult now!";
+            backgroundColor = Colors.orange;
+          } else {
+            message = "Golden years!";
+            backgroundColor = Colors.grey.shade300; // ✅ Correct
+          }
+
+
           return Container(
             color: backgroundColor,
             child: Column(
@@ -70,6 +89,10 @@ class MyHomePage extends StatelessWidget {
                 Text(
                   'Age: ${counter.value}',
                   style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                Text(
+                  message,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
