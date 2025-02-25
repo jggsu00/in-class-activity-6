@@ -71,13 +71,13 @@ class MyHomePage extends StatelessWidget {
             backgroundColor = Colors.lightGreen;
           } else if (counter.value <= 30) {
             message = "You're a young adult!";
-            backgroundColor = Colors.yellow.shade200; // ✅ Correct
+            backgroundColor = Colors.yellow.shade200;
           } else if (counter.value <= 50) {
             message = "You're an adult now!";
             backgroundColor = Colors.orange;
           } else {
             message = "Golden years!";
-            backgroundColor = Colors.grey.shade300; // ✅ Correct
+            backgroundColor = Colors.grey.shade300;
           }
 
 
