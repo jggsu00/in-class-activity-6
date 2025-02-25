@@ -55,9 +55,44 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Age Counter'),
-        backgroundColor: Colors.white, // Set app bar to light blue
+        backgroundColor: Colors.white,
       ),
       body: Consumer<Counter>(
         builder: (context, counter, child) {
           String message;
-          Color backgroundColor = Colors.white; // Default background to white
+          Color backgroundColor = Colors.white;
+
+          return Container(
+            color: backgroundColor,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Age: ${counter.value}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: counter.increment,
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                      child: const Text('Increase Age', style: TextStyle(color: Colors.black)),
+                    ),
+                    const SizedBox(width: 20),
+                    ElevatedButton(
+                      onPressed: counter.decrement,
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                      child: const Text('Decrease Age', style: TextStyle(color: Colors.black)),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
